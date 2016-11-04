@@ -3,7 +3,7 @@
 - name: Install the mysql packages
   sudo: yes
   apt: name={{ item }} state=installed update_cache=yes
-  with_items: mysql_pkgs
+  with_items: "{{mysql_pkgs|default([])}}"
   environment: env
 
 - name: Copy the my.cnf file
