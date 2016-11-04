@@ -11,6 +11,6 @@
 - name: Enable Apache Modules
   sudo: yes
   command:  "a2enmod {{ item }}"
-  with_items: apache_modules
+  with_items: "{{apache_modules|default([])}}"
   notify:
    - restart apache
